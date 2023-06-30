@@ -6,8 +6,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +17,6 @@ import com.senac.projetoIntegrador.senaccoin.exceptions.InsuficientBalanceExcept
 import com.senac.projetoIntegrador.senaccoin.exceptions.UserNotFoundException;
 import com.senac.projetoIntegrador.senaccoin.request.NewTransactionRequest;
 import com.senac.projetoIntegrador.senaccoin.response.BalanceResponse;
-import com.senac.projetoIntegrador.senaccoin.response.ErrorResponse;
 import com.senac.projetoIntegrador.senaccoin.response.NewTransactionResponse;
 import com.senac.projetoIntegrador.senaccoin.response.RetrieveStatementResponse;
 import com.senac.projetoIntegrador.senaccoin.response.StatementResponse;
@@ -72,11 +69,5 @@ public class SenacCoinController {
         response.setBalance(balance);
 
         return new ResponseEntity<BalanceResponse>(response, HttpStatus.OK);
-    }
-
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<ErrorResponse> httpMessageNotReadableExceptionHandler(HttpMessageNotReadableException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(new ErrorResponse("Error parsing JSON", e.getMessage(), null));
     }
 }

@@ -15,7 +15,6 @@ com\senac\projetoIntegrador\health\controller\HealthController.class
 com\senac\projetoIntegrador\senaccoin\response\ErrorResponse.class
 com\senac\projetoIntegrador\ProjetoIntegradorApplication.class
 com\senac\projetoIntegrador\config\dao\Config.class
-com\senac\projetoIntegrador\senaccoin\dto\enums\MovimentStatus.class
 com\senac\projetoIntegrador\senaccoin\request\NewTransactionRequest.class
 com\senac\projetoIntegrador\senaccoin\response\NewTransactionResponse.class
 com\senac\projetoIntegrador\senaccoin\service\ISenacCoinService.class
